@@ -5,8 +5,8 @@ side-by-side CSV table per epsilon value.
 """
 import os
 import pandas as pd
-from config import get_args
-from plot_config import get_output_dir
+from ..config import get_args
+from .config import get_output_dir
 
 args = get_args()
 

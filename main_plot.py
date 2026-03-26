@@ -1,16 +1,14 @@
 """Main entry point for generating all plots.
 
 Iterates over datasets and model types, producing:
-  - cont1 plots (metric vs. constraint parameter)
-  - cont2 plots (metric vs. epoch)
-  - cont3 tables (constraint comparison)
+  - metric_plots (metric vs. constraint parameter)
+  - epoch_plots (metric vs. epoch)
+  - comparison tables (constraint comparison)
 """
 import os
-from config import get_args, update_config
-from cont1 import process_model_type
-from cont2 import plot_model_type
-from cont3 import create_constraint_comparison
-from plot_config import get_output_dir
+from fairness_constraint.config import get_args, update_config
+from fairness_constraint.plotting import process_model_type, plot_model_type, create_constraint_comparison
+from fairness_constraint.plotting.config import get_output_dir
 
 if __name__ == "__main__":
     datasets = ["dutch", "acsincome", "law"]
@@ -22,13 +20,13 @@ if __name__ == "__main__":
         args = get_args()
 
         for mt in args.model_types:
-            # --- cont3: constraint comparison (model type 8) ---
+            # --- Constraint comparison table (model type 8) ---
             if mt == 8:
                 out_dir = get_output_dir("output", dataset, True, args.scaled, "train_cont_3")
                 os.makedirs(out_dir, exist_ok=True)
                 create_constraint_comparison(args.dataset, mt, out_dir, args)
 
-            # --- cont1 & cont2: per-parameter and epoch plots (types 2,3,4) ---
+            # --- Per-parameter and epoch plots (model types 2, 3, 4) ---
             if mt in (2, 3, 4):
                 for data_plot in data_plots:
                     args.data_plot = data_plot

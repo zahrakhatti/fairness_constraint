@@ -1,7 +1,7 @@
 """Shared plotting configuration and utilities.
 
 Centralizes all plotting constants, model configs, and helper functions
-used across cont1, cont2, cont3, and main_plot.
+used across metric_plots, epoch_plots, and comparison.
 """
 import os
 import numpy as np
@@ -25,7 +25,7 @@ GRID_ALPHA = 0.3
 DPI = 300
 
 # ---------------------------------------------------------------------------
-# Model configuration (used by cont1, cont2, and cont3)
+# Model configuration (used by metric_plots, epoch_plots, and comparison)
 # ---------------------------------------------------------------------------
 _COLORS = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"]
 _MARKERS = ["o", "s", "^", "v", "D", "*"]

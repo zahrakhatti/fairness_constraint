@@ -6,9 +6,9 @@ unique value of the "other" parameter (lambda or epsilon/delta).
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
-from config import get_args
-from parse import parse_results
-from plot_config import (
+from ..config import get_args
+from ..parse import parse_results
+from .config import (
     MODEL_CONFIG, FONT_SIZES, FIGURE_SIZE, GRID_ALPHA,
     apply_plot_style, format_value, generate_epoch_colors,
 )

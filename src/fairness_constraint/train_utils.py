@@ -4,16 +4,16 @@ import torch
 import os
 import time
 import numpy as np
-from fairness_models import *
-from fairness_matrics import *
-from stochasticsqp import StochasticSQP
+from .fairness_models import *
+from .fairness_metrics import *
+from .stochasticsqp import StochasticSQP
 import logging
-from save_utils import ResultsManager
+from .save_utils import ResultsManager
 
 
 def evaluate_test_dataset_from_saved_model(model_filepath, testloader, args):
 
-    from save_utils import ResultsManager
+    from .save_utils import ResultsManager
     
     results_manager = ResultsManager()
     
@@ -65,7 +65,7 @@ def evaluate_test_dataset_from_saved_model_all_epochs(base_dir, eps, lmbd, testl
     Load all saved epoch models and evaluate on test dataset.
     This is the original function from your code - kept as is for backward compatibility.
     """
-    from save_utils import ResultsManager
+    from .save_utils import ResultsManager
     
     # Format eps and lambda for directory name
     eps_str = f"{eps:.1e}" if eps != float('inf') else "inf"

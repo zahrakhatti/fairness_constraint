@@ -6,9 +6,9 @@ parameter on the x-axis, with data points annotated.
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
-from config import get_args
-from parse import extract_eps_lambda_from_filename, get_result_files
-from plot_config import (
+from ..config import get_args
+from ..parse import extract_eps_lambda_from_filename, get_result_files
+from .config import (
     MODEL_CONFIG, FONT_SIZES, FIGURE_SIZE, GRID_ALPHA, DPI,
     apply_plot_style, format_x_tick,
 )
@@ -18,9 +18,6 @@ args = get_args()
 # ---------------------------------------------------------------------------
 # Plot definitions
 # ---------------------------------------------------------------------------
-# Each entry describes one type of figure.  ``model_types`` controls which
-# model types produce this plot; the rest mirrors the old PLOT_CONFIGS list
-# exactly so that the same filenames and content are produced.
 PLOT_CONFIGS = [
     dict(
         metrics=["delta_model", "delta_measure"],
